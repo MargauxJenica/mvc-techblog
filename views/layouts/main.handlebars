@@ -1,3 +1,5 @@
+{{!-- Main Page Handlebar Template --}}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +11,37 @@
 </head>
 
 <body>
-    
+    <header>
+        <h1>
+            {{!-- header acts like another homepage button --}}
+            <a href="/">The Tech Blog</a>
+        </h1>
+        <nav>
+            <nav class="nav-list">
+
+                {{!-- always display homepage --}}
+                <a href="/" class="home-btn">Home</a> 
+
+                {{#if logged_in}}  
+                {{!-- if logged in dashboard will direct to your dashboard (profile) and display logout button--}}
+                <a href="/dashboard" class="dashboard-btn">Dashboard</a>    
+                <button class="nav-list logout" id="logout">Logout</button>      
+                {{else}}
+                {{!-- if not logged in dashboard and login will prompt you to login --}}
+                <a href="/login" class="dashboard-btn">Dashboard</a>
+                <button class="nav-list login" id="login">Login</button> 
+                {{/if}}
+
+            </nav>
+        </nav>
+    </header>
+
+    <main class="main-container">
+        {{{body}}}
+    </main>
+
+    {{#if logged_in}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
 </body>
 </html>
