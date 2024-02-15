@@ -1,0 +1,18 @@
+{{!-- Individulal user handle bars --}}
+<div class="post-Window">
+    <h2 class="userHeader">{{name}}'s Dashboard</h2>
+    {{#each posts}}
+    <div class="blogpost">
+        <header>
+            <h3 id="postTitle"><a href="/posts/{{id}}">{{name}}</a></h3>
+            <h3 id="postUser">Created by <a class="username" href="/users/{{user.id}}">{{user.name}}</a></h3>
+        </header>
+        <section id="postContent">
+            <p>
+                {{content}}
+            </p>
+        </section>
+    </div>
+    {{/each}}
+
+</div>

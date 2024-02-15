@@ -1,11 +1,11 @@
 {{!-- homepage handlebars --}}
 
 <div class="post-Window">
-    {{#each post}}
+    {{#each posts}}
     <div class="blogpost">
         <header>
             <h3 id="postTitle"><a href="/posts/{{id}}">{{name}}</a></h3>
-            <h3 id="postUser">Shared by <a href="/users/{{user.id}}">{{user.name}}</a></h3>
+            <h3 id="postUser">Created by <a class="username" href="/users/{{user.id}}">{{user.name}}</a></h3>
         </header>
         <section id="postContent">
             <p>

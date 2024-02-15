@@ -1,0 +1,59 @@
+{{!-- when you click on a blogpost --}}
+
+<div class="post-Window">
+    <div class="blogpost">
+        <header>
+            <h3 id="postTitle"><a href="/posts/{{id}}">{{name}}</a></h3>
+            <h3 id="postUser">Created by <a class="username" href="/users/{{user.id}}">{{user.name}}</a> on {{date}}</h3>
+        </header>
+        <section id="postContent">
+            <p>
+                {{content}}
+            </p>
+        </section>
+    </div>
+</div>
+<section class="commentSection">
+
+        {{#if logged_in}}
+        <button class="btn" id="makeComment"><a href=""></a></button>
+
+        <div class="comment-Creator hidden">
+
+            <div class="create2">
+
+                <label for="postComment">Comment:</label>
+                <textarea id="postComment" name="postComment" required></textarea>
+
+            </div>
+
+            {{!-- submit button --}}
+            <div class="create4">
+                <button type="submit" id="create-comment" class="btn">Submit Comment</button>
+            </div>
+        </div>
+        {{/if}}
+
+        <h2 id="comments">Comments:</h2>
+        {{#if comments}}
+        {{else}}
+        <h2>It's looking a little lonely here, why not post a comment?</h2>
+        {{/if}}
+    </div>
+
+    {{#each comments}}
+    <div class="post-card">
+        <div class="card-header">
+            <p id="comment-user">Comment by <a href="/users/{{user.id}}">{{user.name}}</a></p>
+        </div>
+        <div>
+            <p id="comment-text">
+                {{comment}}
+            </p>
+        </div>
+    </div>
+    {{/each}}
+
+</section>
+
+<script src="/public/js/comment.js"></script>
